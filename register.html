@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyMovieList - Projeto - Criar Conta</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="icon" type="image/x-icon" href="images/icon.svg">
+    <script src="https://kit.fontawesome.com/87e454f50e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Criar Conta</h1>
+            <form onsubmit="submitForm(event)" id="registerForm">
+                <div class="input-group">
+                    <label for="nome">Nome</label>
+                    <input required type="text" name="nome" id="nome" placeholder="Digite seu nome">
+                </div>
+                    <div class="errorArea">
+                        <div class="errorAreaText">
+                            <label for="email">E-mail</label>
+                            <input required type="email" name="email" id="email" placeholder="nome@exemplo.com">
+                        </div>
+                        <div class="errorDisplay" id="mailError">
+                            <i class="fa-solid fa-triangle-exclamation" style="color: white;"></i>
+                            <p id="errorMessage">Este e-mail já foi utilizado!</p>
+                        </div>
+                    </div>
+                <div class="input-group">
+                    <label for="password">Palavra-passe</label>
+                    <input required type="password" minlength="3" name="password" id="password" placeholder="Digite a sua palavra-passe">
+                </div>
+                <div class="errorArea">
+                    <div class="errorAreaText">
+                        <label for="confirmPassword">Confirme a sua palavra-passe</label>
+                        <input required type="password" minlength="3" name="confirmPassword" id="confirmPassword" placeholder="Confirmar palavra-passe">
+                    </div>
+                    <div class="errorDisplay" id="passwordError">
+                        <i class="fa-solid fa-triangle-exclamation" style="color: white;"></i>
+                        <p>As palavras-passe não coincidem</p>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button type="submit" style="background-color:greenyellow;">Criar Conta</button>
+                    <a href="login.html">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts/register.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+.formDiv{
+    width:fit-content;
+    height:fit-content;
+    margin:1rem auto;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    row-gap: 1rem;
+    background-color: var(--secondary-color);
+    padding:2rem;
+    min-width:40vw;
+    border-radius:0.5rem;
+    border:1px solid var(--text-color);
+}
+
+.formDiv h1{
+    margin:0;
+}
+
+.form-input{
+    display:flex;
+    flex-direction:column;
+    row-gap:0.5rem;
+    max-width:50vw;
+}
+
+.form-input input{
+    padding:0.5rem;
+    border-radius:0.5rem;
+    border:1px solid var(--primary-color);
+    background-color:var(--background-color);
+    color:var(--text-color);
+}
+
+.form-input textarea{
+    padding:0.5rem;
+    border-radius:0.5rem;
+    border:1px solid var(--primary-color);
+    background-color:var(--background-color);
+    color:var(--text-color);
+    resize:none;   
+}
+
+.form-input select{
+    padding:0.5rem;
+    border-radius:0.5rem;
+    border:1px solid var(--primary-color);
+    background-color:var(--background-color);
+    color:var(--text-color);
+
+}
+
+.saveButton{
+    padding:0.5rem;
+    border-radius:0.5rem;
+    border:1px solid var(--primary-color);
+    background-color:var(--background-color);
+    color:var(--text-color);
+    width:10vw;
+    cursor:pointer;
+}

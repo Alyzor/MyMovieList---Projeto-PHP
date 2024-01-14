@@ -1,0 +1,59 @@
+/* TOOLBAR */
+
+.toolbar{
+    width:100%;
+    height:5rem;
+    background-color:var(--secondary-color);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 2rem;
+    box-sizing:border-box;
+}
+
+.toolbar img{
+    height:3rem;
+    border-radius:50%;
+    width:auto;
+}
+
+.toolbar input{
+    padding:0.5rem;
+    border-radius:0.5rem;
+    border:1px solid var(--primary-color);
+    background-color:var(--background-color);
+    color:var(--text-color);
+    width:45vw;
+}
+
+.user{
+    display:flex;
+    align-items:center;
+    flex-direction: column;
+}
+
+.accountSettings{
+    display:none;
+    align-items:center;
+    flex-direction: column;
+    border:1px solid var(--primary-color);
+    border-radius:0.5rem;
+    padding:0.5rem;
+    background-color:var(--secondary-color);
+    color:var(--text-color);
+    position:absolute;
+    top:6rem;
+    right:1rem;
+    z-index:100;
+}
+
+.settingsOpen{
+    display:flex;
+}
+
+.accountSettings .accountItem{
+    padding:0.5rem;
+}
+.accountSettings .changePfp{
+    border-bottom:1px white solid;
+}

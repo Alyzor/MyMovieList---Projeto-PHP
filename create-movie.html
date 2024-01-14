@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyMovieList - Projeto</title>
+    <link rel="stylesheet" href="styles/createMovie.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/toolbar.css">
+    <link rel="icon" type="image/x-icon" href="images/icon.svg">
+    <script src="https://kit.fontawesome.com/87e454f50e.js" crossorigin="anonymous"></script>
+    <script src="scripts/createMovie.js" ></script>
+    <script src="scripts/toolbar.js"></script>
+</head>
+<body>
+    <script>
+        if (localStorage.getItem("user") == null) {
+            window.location.href = "login.html";
+        }
+    </script>
+    <div class="container">
+        <div class="toolbar">
+            <input type="file" accept="image" style="display:none;" id="changePfp">
+            <div class="logo">
+                <a href="dashboard.html" style="display: block; font-size: 2em; font-weight: bold; text-decoration: none; color:var(--text-color);">MyMovieList</a>
+            </div>
+            <div class="user" onclick="document.getElementById('settingsDrawer').classList.toggle('settingsOpen')">
+                <img id="fotoPerfil" src="images/nullpfp.jpg" alt="Usuário">
+                <p id="nomeUser" style="margin:0;">Username</p>
+                <div id="settingsDrawer" class="accountSettings">
+                    <span class="accountItem changePfp" onclick="changePfp()">Alterar Fotogafia</span>
+                    <span class="accountItem" onclick="logout()">Logout</span>
+                </div>
+            </div>
+        </div>
+        <form onsubmit="createMovie(event)" id="movieForm">
+            <div class="formDiv">
+                <h1>Adicionar Filme</h1>
+                <div class="form-input">
+                    <label for="titulo">Título:</label>
+                    <input type="text" id="titulo" name="titulo" required>
+
+                </div>
+
+                <div class="form-input">
+                    <label for="genero">Género:</label>
+                    <select id="genero" name="genero" required>
+                    </select>
+                    <input type="text" id="novoGenero" name="novoGenero" placeholder="Adicionar novo género">
+                </div>
+
+                <div class="form-input">
+                    <label for="descricao">Descrição:</label>
+                    <textarea  maxlength="256" id="descricao" name="descricao" ></textarea>
+                </div>
+
+                <div class="form-input">
+                    <label for="ano">Ano:</label>
+                    <input type="number" id="ano" name="ano" >
+                </div>
+
+                <div class="form-input">
+                    <label for="avaliacao">Avaliação:</label>
+                    <input type="number" id="avaliacao" name="avaliacao" min="0" max="5" step="0.1" required>
+                </div>
+
+                <button class="saveButton" type="submit">Salvar</button>
+            </div>
+            </form>
+    </div>
+</body>

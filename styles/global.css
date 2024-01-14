@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap');
+
+:root {
+    --primary-color: #6c757d;
+    --secondary-color: #343a40;
+    --background-color: #121212;
+    --text-color: #f1f1f1;
+    --google-font: 'Nunito Sans', sans-serif;
+}
+
+body {
+    font-family: var(--google-font);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+.errorDisplay p{
+    margin:0;
+    padding:0;
+    font-size: 1rem;
+    margin-left:1rem;
+    font-family: var(--google-font);
+}
+
+.errorArea{
+    margin:1rem 0;
+}
+
+.errorAreaText{
+    display:flex;
+    flex-direction:column;
+    min-width:15rem;
+}
+
+.errorAreaText input{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--primary-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+.errorExists{
+    height:100% !important;
+    display:flex !important;
+}
+
+.errorDisplay{
+    background-color: red;
+    color: white;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 0.5rem 0.5rem;
+    padding:0.5rem;
+    padding-top:1rem !important;
+    margin-top:-0.5rem;
+    z-index:1;
+    height:0;
+    display:none;
+}

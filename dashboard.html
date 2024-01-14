@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyMovieList - Projeto</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/toolbar.css">
+    <link rel="icon" type="image/x-icon" href="images/icon.svg">
+    <script src="https://kit.fontawesome.com/87e454f50e.js" crossorigin="anonymous"></script>
+    <script src="scripts/dashboard.js" ></script>
+    <script src="scripts/toolbar.js"></script>
+</head>
+<body>
+    <script>
+        if (localStorage.getItem("user") == null) {
+            window.location.href = "login.html";
+        }
+    </script>
+    <div class="container">
+        <div id="loading" class="loaderBox show">
+            <div class="loader"></div>
+        </div>
+        <div class="toolbar">
+            <input onchange="uploadPfp()" type="file" accept="image" style="display:none;" id="changePfp">
+            <div class="logo">
+                <a href="dashboard.html" style="display: block; font-size: 2em; font-weight: bold; text-decoration: none; color:var(--text-color);">MyMovieList</a>
+            </div>
+            <div class="user" onclick="document.getElementById('settingsDrawer').classList.toggle('settingsOpen')">
+                <img id="fotoPerfil" src="images/nullpfp.jpg" alt="Usuário">
+                <p id="nomeUser" style="margin:0;">Username</p>
+                <div id="settingsDrawer" class="accountSettings">
+                    <span class="accountItem changePfp" onclick="changePfp()">Alterar Fotogafia</span>
+                    <span class="accountItem" onclick="logout()">Logout</span>
+                </div>
+            </div>
+        </div>
+        <div class="movieListContainer">
+            <h1>A minha lista de filmes: </h1>
+            <div class="tableOptions">
+                <a class="addMovie" href="create-movie.html">Adicionar Filme</a>
+                <div class="search">
+                    <input id="filter" type="text" placeholder="Pesquisar filmes... ">
+                    <button onclick="filterMovies()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <table id="movieTable" class="movieTable">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                        <th>Género</th>
+                        <th>Ano</th>
+                        <th>Avaliação</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="genreWrapper">
+            <h1>Géneros</h1>
+            <div class="displayGenre" id="displayGenre">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
