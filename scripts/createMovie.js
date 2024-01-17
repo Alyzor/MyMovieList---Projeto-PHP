@@ -1,6 +1,7 @@
+var id = null;
+
 async function createMovie(event){
     event.preventDefault();
-
     // Get the form data
     var form = document.getElementById("movieForm");
     var formData = new FormData(form);
@@ -29,14 +30,26 @@ async function createMovie(event){
 
     if (idgenero != null){
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "php/createMovie.php");
+
+        if (id != null){
+            xhr.open("POST", "php/updateMovie.php");
+            formData.set("id", id);
+        }else{
+            xhr.open("POST", "php/createMovie.php");
+        }
+
         xhr.send(formData);
 
         xhr.onreadystatechange = function(){
             if (xhr.readyState === XMLHttpRequest.DONE){
                 switch (xhr.status){
                     case 200:
-                        alert("Filme criado com sucesso!");
+                        if (formData.get("id") == null){
+                            alert("Filme criado com sucesso!");
+                        }else{
+                            alert("Filme atualizado com sucesso!");
+                        }
+                        location.href = "dashboard.html";
                         break;
                     case 401:
                         alert("Erro ao criar filme! Tente novamente mais tarde");
@@ -97,4 +110,50 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         }
     };
+
+
+    if (window.location.href.includes("?")){
+    var params = new URLSearchParams(window.location.search);
+    id = params.get("id");
+    if (id == null) {return;}
+    var xhr2 = new XMLHttpRequest();
+    xhr2.open("POST", "php/getMovie.php");
+    fdata = new FormData();
+    fdata.set("id", id);
+    xhr2.send(fdata);
+
+    xhr2.onreadystatechange = function(){
+        if (xhr2.readyState === XMLHttpRequest.DONE){
+            switch (xhr2.status){
+                case 200:
+                    var response = JSON.parse(xhr2.responseText);
+                    var movie = response[0][0];
+                    var genreId = response[1][0].genre_id;
+
+                    console.log(movie);
+                    console.log(genreId);
+
+                    document.getElementById("titulo").value = movie.titulo;
+                    document.getElementById("ano").value = movie.ano;
+                    document.getElementById("avaliacao").value = movie.avaliacao;
+                    document.getElementById("descricao").value= movie.descricao;
+
+                    var genreChildren = document.getElementById("genero").childNodes;
+
+                    for (const child of genreChildren){
+                        if (child.value == genreId){
+                            child.selected = true;
+                        }
+                    }
+                    break;
+                default:
+                    id = null;
+                    break;
+            }
+        }
+    };
+    }
+
+    document.getElementById("loading").classList.remove("show");
+
 });

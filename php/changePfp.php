@@ -1,5 +1,9 @@
 <?php
 
+$id = $_POST['id'];
+
+include 'dbConnection.php';
+
 $file = $_FILES['file'];
 $filename = $_FILES['file']['name'];
 $fileTmpName = $_FILES['file']['tmp_name'];
@@ -19,7 +23,24 @@ if (in_array($fileActualExt, $allowed)) {
             $fileDestination = '../images/' . $fileNameNew;
             try{
                 move_uploaded_file($fileTmpName, $fileDestination);
-                echo $fileDestination;
+                
+                $conn = getDatabaseConnection();
+                
+                $sql = "UPDATE users SET foto_perfil = :profilePic WHERE id = :id";
+                $stmt = $conn->prepare($sql);
+                
+                try{
+                $stmt->execute(array(
+                    ':profilePic' => $fileNameNew,
+                    ':id' => $id
+                ));
+                echo $fileNameNew;
+                echo HTTP_RESPONSE_CODE(200);
+                }catch(Exception $e){
+                    echo $e;
+                    echo HTTP_RESPONSE_CODE(500);
+                }
+
             } catch (Exception $e) {
                 echo $e;
             }

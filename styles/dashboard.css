@@ -2,42 +2,6 @@ body{
     overflow-x: hidden;
 }
 
-/* SPINNER */
-.loader{
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 120px;
-    height: 120px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
-    animation: spin 2s linear infinite;
-    margin: 0 auto;
-}
-
-.loaderBox{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background-color:rgba(0,0,0,0.5);
-    z-index:1000;
-    display:none;
-    justify-content:center;
-    align-items:center;
-}
-
-.loaderBox.show{
-    display:flex;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 /* MAIN CONTAINER */
 .container{
     min-height:100vh;
@@ -82,7 +46,6 @@ body{
     text-align: center;
     width: fit-content; /* Adjust width based on content */
 }
-
 
 .tableOptions input{
     padding:0.5rem;

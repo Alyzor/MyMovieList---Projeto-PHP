@@ -143,6 +143,16 @@ function populateTable(){
     }
 };
 
+function editMovie(id){
+    window.location.href = "create-movie.html" + "?id=" + id;
+}
+
+function removeFilter(){
+    var filter = document.getElementById("filter");
+    filter.value = "";
+    filterMovies();
+}
+
 function deleteMovie(id){
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "php/deleteMovie.php");
@@ -165,9 +175,7 @@ function deleteMovie(id){
     }
 }
 
-function editMovie(id){
-    console.log(id);
-}
+
 
 async function getGenero(id){
 

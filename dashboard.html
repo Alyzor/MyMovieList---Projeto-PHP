@@ -41,8 +41,11 @@
             <div class="tableOptions">
                 <a class="addMovie" href="create-movie.html">Adicionar Filme</a>
                 <div class="search">
+                    <button onclick="removeFilter()" style="margin-left:2px; border-radius: 0.5rem !important;">
+                        <i class="fas fa-xmark"></i>
+                    </button>
                     <input id="filter" type="text" placeholder="Pesquisar filmes... ">
-                    <button onclick="filterMovies()">
+                    <button onclick="filterMovies()" style="margin-right:2px;">
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
